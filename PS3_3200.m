@@ -17,7 +17,7 @@ while abs(f_xr) >= 1e-5
     f_xl = tan(pi*xl) - xl - 6;
     f_xu = tan(pi*xu) - xu - 6;
     % Relative error from previous step
-    error = f_xr_old - f_xr;
+    error = xr - 0.4510472588;
     % Store values for post-processing
     tab(i,:) = [i xl xu xr f_xr error];
     % Find where the function changes sign and assign new interval
@@ -32,10 +32,11 @@ end
 % Force out first error value
 tab(1,6) = NaN;
 
-x = linspace(0,5,1000);
+
 % Plotting
+x = linspace(0,5,1000);
 plot(x,(tan(pi*x) - x - 6));
-axis([0 5 -10 10]);
+axis([0 5 -10 10]); title('Function Plot'); ylabel('y'); xlabel('x');
 %% Question 2
 %% Part a
 % Define initial guess
@@ -65,7 +66,7 @@ while abs(f_x) >= 1e-5
     % Find value of f(xi)
     f_x = tan(pi*xi) - xi - 6; 
     % Find value of f(xi-1)
-    f_x1 = pi*sec(pi*xi)^2 - 1;
+    f_x_1 = pi*sec(pi*xi)^2 - 1;
     % Use N-R equation
     xi_1 = xi - f_x/;
 end
